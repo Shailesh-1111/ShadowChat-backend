@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Section -->
+        <div id="login-section" class="login-section">
+            <div class="login-card">
+                <h1>Join Chat Room</h1>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="roomId">Room ID</label>
+                        <input type="text" id="roomId" placeholder="Enter room ID" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Join Room</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div id="chat-section" class="chat-section hidden">
+            <div class="chat-header">
+                <h2>Room: <span id="room-display"></span></h2>
+                <p>Connected as: <span id="user-display"></span></p>
+                <button id="leave-room" class="btn-secondary">Leave Room</button>
+            </div>
+            
+            <div class="chat-container">
+                <div id="messages" class="messages"></div>
+                
+                <div class="message-input-container">
+                    <form id="message-form">
+                        <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off">
+                        <button type="submit" class="btn-send">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connection Status -->
+        <div id="connection-status" class="connection-status">
+            <span id="status-text">Connecting...</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

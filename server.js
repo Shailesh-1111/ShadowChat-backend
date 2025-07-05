@@ -25,7 +25,7 @@ const users = {};
 
 IO.on('connection',(socket)=>{
 
-    console.log("user connected: ", socket.id);
+    // console.log("user connected: ", socket.id);
 
 
     socket.on('join room',({roomId, userName})=>{
@@ -36,7 +36,7 @@ IO.on('connection',(socket)=>{
         users[socket.id] = userName;
         socket.join(roomId);
         socket.emit('joined room');
-        console.log('Username:', userName, 'joined room: ',roomId);
+        // console.log('Username:', userName, 'joined room: ',roomId);
     });
 
     socket.on('room message',({roomId, message})=>{
@@ -44,12 +44,12 @@ IO.on('connection',(socket)=>{
             return socket.emit("error", "Access denied: you're not in this room.");
         }
 
-        console.log(`${roomId}: ${users[socket.id]}: ${message}`);
+        // console.log(`${roomId}: ${users[socket.id]}: ${message}`);
         socket.to(roomId).emit('room message', {userName: users[socket.id], message: message});
     });
 
     socket.on('disconnect',()=>{
-        console.log('User disconnected: ', users[socket.io]);
+        // console.log('User disconnected: ', users[socket.io]);
     });
 });
 
