@@ -10,7 +10,9 @@
   "keywords": [],
   "author": "Shailesh Yadav",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
+    "dotenv": "^17.0.1",
     "express": "^5.1.0",
     "path": "^0.12.7",
     "socket.io": "^4.8.1"
